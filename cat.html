@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        padding: 0; margin: 0;
+    }
+    .box{
+        width: 400px;
+        height:500px;
+        margin:0 auto;
+        position: relative;
+    }
+    /*头部*/
+    .header{
+        width: 280px;height: 280px;
+        background: linear-gradient(210deg,#08BBE6 55%, #064859);
+        border: 2px solid #000;
+        border-radius: 48%;
+        position: relative;
+        box-shadow: -5px 10px 10px #A5A5A5;
+    }
+    /*脸*/
+    .lian{
+        width: 240px;height: 210px;
+        border-radius: 48% 48% 50% 50%;
+        border: 2px solid #000;
+        position: absolute;
+        left: 0;
+        right:0;
+        bottom: 10px;
+        margin: auto;
+        background: #fff;
+        box-shadow: 5px -8px 10px #BEBEBE inset,-5px 10px 10px #074B5D;
+    }
+    /*眼睛*/
+    .eye{
+        width: 140px;
+        height: 85px;
+        position: absolute;
+        left: 0;
+        right:0;
+        top: -30px;
+        margin: auto;
+    }
+    .eye .eyes{
+        width: 50%;
+        height: 100%;
+        border: 2px solid #000;
+        background: #fff;
+        box-sizing: border-box;
+        position: relative;
+        float: left;
+    }
+    .eye .eye1{
+        border-radius: 40% 42% 42% 40%;
+    }
+    .eye .eye2{
+        border-radius: 42% 40% 40% 42%;
+    }
+    .eye .eye1>div{
+        width: 10px;
+        height: 10px;
+        background: #000;
+        border-radius: 50%;
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+    }
+    .eye .eye2>div{
+        width: 10px;
+        height: 10px;
+        background: #000;
+        border-radius: 50%;
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+    }
+    /*鼻子*/
+    .bizi{
+        width: 25px;
+        height: 25px;
+        border: 2px solid #000;
+        border-radius: 48%;
+        position: absolute;
+        left: 0;
+        right:0;
+        top: 40px;
+        margin: auto;
+        background: radial-gradient(at 15px 10px,#fff,#C93E00 45%);
+    }
+    /*嘴巴*/
+    .shu{
+        width: 2px;
+        height: 100px;
+        background: #000;
+        position: absolute;
+        left: 0;
+        right:0;
+        top: 67px;
+        margin: auto;
+        z-index: 10;
+    }
+    .zui{
+        width: 180px;
+        height: 120px;
+        border-bottom: 3px solid #000;
+        border-radius: 60%;
+        position: absolute;
+        left: 0;
+        right:0;
+        top: 45px;
+        margin: auto;
+        z-index: 10;
+    }
+    .dang{
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        position: absolute;
+        top:40px;
+    }
+    .dang.write1{
+        left: -10px;
+    }
+    .dang.write2{
+        right: -10px;
+    }
+    /*胡须*/
+    .huxu-left{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top:55px;
+        left: 15px;
+        z-index: 100;
+    }
+    .huxu-left div{
+        width: 60px;
+        height: 2px;
+        background: #000;
+        position: absolute;
+    }
+    .huxu-left div:nth-child(1){
+        transform-origin: center;
+        transform: rotate(20deg);
+        top:20px;
+    }
+    .huxu-left div:nth-child(2){
+        top:0;
+        bottom: 0;
+        left: -4px;
+        margin:auto;
+    }
+    .huxu-left div:nth-child(3){
+        transform-origin: center;
+        transform: rotate(-20deg);
+        bottom: 20px;
+    }
+    /*右*/
+    .huxu-right{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top:55px;
+        right: 15px;
+        z-index: 100;
+    }
+    .huxu-right div{
+        width: 60px;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        right: 0;
+    }
+    .huxu-right div:nth-child(1){
+        transform-origin: center;
+        transform: rotate(-20deg);
+        top:20px;
+    }
+    .huxu-right div:nth-child(2){
+        top:0;
+        bottom: 0;
+        right: -4px;
+        margin:auto;
+    }
+    .huxu-right div:nth-child(3){
+        transform-origin: center;
+        transform: rotate(20deg);
+        bottom: 20px;
+    }
+    /*铃铛*/
+    .red-long{
+        width: 220px;
+        height: 25px;
+        background: linear-gradient(#BD3600,#8D0E00);
+        border: 2px solid #000;
+        box-sizing: border-box;
+        border-radius: 15px;
+        position: absolute;
+        left: 0;
+        right:0;
+        margin: auto;
+        bottom: 5px;
+        z-index: 200;
+    }
+    .lingdang{
+        width: 35px;
+        height: 35px;
+        border: 2px solid #000;
+        box-sizing: border-box;
+        background: radial-gradient(at 20px 10px ,#fff,#C6BE0C 50%);
+        margin: 15px auto;
+        border-radius: 50%;
+    }
+    .line1{
+        width: 30px;
+        height: 2px;
+        background: #000;
+        margin-top:6px;
+    }
+    .line2{
+        width: 32px;
+        height: 2px;
+        background: #000;
+        margin-top:3px;
+    }
+    div.circle{
+        width: 8px;
+        height: 8px;
+        background: #000;
+        border-radius: 50%;
+        margin: 3px auto 0;
+    }
+    div.line3{
+        width: 2px;
+        height: 8px;
+        background: #000;
+        margin:0 auto;
+    }
+    /*身体*/
+    .main{
+        width: 200px;height: 180px;
+        margin-left: 42px;
+        margin-top: -20px;
+        background: linear-gradient(210deg,#08BBE6 40%, #074C5E);
+        border: 2px solid #000;
+        z-index: 100;
+        position: relative;
+        box-shadow: -5px 10px 20px #A5A5A5;
+    }
+    div.zhedang{
+        width: 208px;height: 52px;
+        background: linear-gradient(210deg,#08BBE6 50%, #0799BC);
+        position: absolute;
+        left: -4px;
+        top:9px;
+        z-index: 105;
+    }
+    /*左手*/
+    .hand-left{
+        width: 45px;height: 100px;
+        border: 2px solid #000;
+        background: linear-gradient(#08BBE6 10%, #074C5E);
+        transform: rotate(50deg);
+        position: absolute;
+        left: -45px;
+        top: 1px;
+        box-shadow: -5px 10px 10px #A5A5A5;
+    }
+    .hand-left div.shou{
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 50%;
+        box-sizing: border-box;
+        position: absolute;
+        left: -5px;
+        bottom: -20px;
+        box-shadow: -5px 10px 10px #A5A5A5;
+    }
+    .hand-right{
+        width: 45px;height: 100px;
+        border: 2px solid #000;
+        background: #08BBE6;
+        transform: rotate(135deg);
+        position: absolute;
+        right: -40px;
+        top: 1px;
+    }
+    .hand-right div.shou{
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 50%;
+        box-sizing: border-box;
+        position: absolute;
+        right: -5px;
+        bottom: 60px;
+    }
+    /*口袋*/
+    div.dai{
+        width: 150px;
+        height: 150px;
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 50%;
+        box-sizing: border-box;
+        margin: -12px auto;
+        position: relative;
+        z-index: 110;
+    }
+    div.center{
+        width: 100px;
+        height: 60px;
+        border: 2px solid #000;
+        margin: 70px  auto;
+        border-radius: 0 0 60px 60px;
+    }
+    /*脚*/
+    .foot-left{
+        width: 110px;
+        height: 30px;
+        background: #fff;
+        position: absolute;
+        left: -15px;
+        border: 2px solid #000;
+        bottom: -12px;
+        border-radius: 14px 12px 12px 14px ;
+        z-index: 200;
+        box-shadow: -5px 5px 10px #A5A5A5;
+    }
+    .foot-right{
+        width: 110px;
+        height: 30px;
+        background: #fff;
+        position: absolute;
+        right: -15px;
+        border: 2px solid #000;
+        bottom: -12px;
+        border-radius: 12px 14px 14px 12px;
+        z-index: 200;
+    }
+    .foot{
+        width: 20px;
+        height: 30px;
+        background: #fff;
+        position: absolute;
+        left: 0;
+        right:0;
+        bottom: -3px;
+        margin: auto;
+        border: 2px solid #000;
+        border-bottom: none;
+        border-radius: 25px 25px 0 0;
+        z-index: 190;
+        box-shadow: -5px 5px 10px #A5A5A5; inset;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="header">
+            <!--脸-->
+            <div class="lian">
+                <!--眼睛-->
+                <div class="eye">
+                    <div class="eyes eye1">
+                        <div class="yanqiu"></div>
+                    </div>
+                    <div class="eyes eye2">
+                        <div class="yanqiu"></div>
+                    </div>
+                </div>
+                <!--鼻子-->
+                <div class="bizi"></div>
+                <!--嘴巴-->
+                <div class="shu"></div>
+                <div class="zui">
+                    <div class="dang write1"></div>
+                    <div class="dang write2"></div>
+                </div>
+                <!--胡须-->
+                <div class="huxu-left">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="huxu-right">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <!--铃铛-->
+            <div class="red-long">
+                <div class="lingdang">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="circle"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </div>
+        <!--身体-->
+        <div class="main">
+            <div class="zhedang"></div>
+            <!--手-->
+            <div class="hand-left">
+                <div class="shou"></div>
+            </div>
+            <div class="hand-right">
+                <div class="shou"></div>
+            </div>
+            <!--口袋-->
+            <div class="dai">
+                <div class="center"></div>
+            </div>
+            <!--脚-->
+            <div class="foot-left"></div>
+            <div class="foot-right"></div>
+            <div class="foot"></div>
+        </div>
+
+    </div>
+
+</body>
+</html>

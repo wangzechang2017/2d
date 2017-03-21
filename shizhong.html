@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<script>
+window.onload=function () {
+    var clock=document.querySelector(".clock");
+    createMark()
+    var times=new Date();
+    var hours=times.getHours();
+    var min=times.getMinutes();
+    var sec=times.getSeconds();
+
+
+    var h=creatPointer(6,70,"#000",hours*30+min*6/12);
+    var m=creatPointer(4,90,"#000",min*6);
+    var s=creatPointer(2,100,"#000",sec*6);
+    setInterval(function () {
+        var times=new Date();
+        var hours=times.getHours();
+        var min=times.getMinutes();
+        var sec=times.getSeconds();
+        h.style.transform="rotate("+(hours*30+min*6/12)+"deg)"
+        m.style.transform="rotate("+min*6+"deg)";
+        s.style.transform="rotate("+sec*6+"deg)"
+    },1000)
+    //创造刻度
+        //1.所有的变化都是相对于自己的位置变化    2.变化不会影响其他元素
+    function createMark() {
+        var widths,heights;
+        for(var i=0;i<60;i++){
+            if(i%5==0){
+                widths=4;
+                heights=10;
+            }else {
+                widths=2;
+                heights=6;
+            }
+            var clock=document.querySelector(".clock");
+            var div=document.createElement("div");
+            div.style.cssText="width:"+widths+"px;height:"+heights+"px;background:#000;position:absolute;left:"+(300-widths)/2+"px;top:0";
+            div.style.transformOrigin="center 150px"
+            div.style.transform="rotate("+i*6+"deg)";
+            clock.appendChild(div)
+        }
+    }
+    //指针:时针，分针，秒针
+    function creatPointer(w,h,c,a) {
+        var div=document.createElement("div");
+        var lefts=(300-w)/2;
+        var tops=300/2-h;
+        div.style.cssText="width:"+w+"px;height:"+h+"px;background:"+c+";position:absolute;left:"+lefts+"px;top:"+tops+"px";
+        div.style.transformOrigin="center bottom";
+        div.style.transform="rotate("+a+"deg)";
+        clock.appendChild(div);
+        return div;
+    }
+}
+
+	</script>
+	<body>	
+			<div class="clock"></div>
+	</body>
+	<style>
+		.clock{
+			width:300px;
+			height:300px;
+			border: 5px solid #aaa;
+			background: radial-gradient(#fff,#ccc);
+			box-shadow: 0 0 5px #000;
+			margin: auto;
+			position: fixed;
+			left: 0;right: 0;bottom: 0;top: 0;
+			border-radius: 50%;
+		}
+	</style>
+</html>
